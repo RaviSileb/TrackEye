@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.TrackEye" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">#6C63FF</item>
+        <item name="colorPrimaryVariant">#4A42D6</item>
+        <item name="colorSecondary">#00D4A6</item>
+        <item name="android:windowBackground">#0E0E1A</item>
+    </style>
+</resources>

@@ -1,0 +1,14 @@
+Package: trackeye
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3, python3-gi, gir1.2-gtk-3.0, python3-opencv, python3-numpy
+Recommends: xdotool
+Maintainer: TrackEye Contributors <trackeye@localhost>
+Description: Eye & micro-gesture control for Ubuntu
+ TrackEye controls the computer with eye gaze and facial micro-gestures
+ (blink, head tilt) using only the local webcam. All video processing
+ happens on-device; the application uses no network.
+ Optimized for always-on use with dynamic FPS and local profiles,
+ quick calibration, dwell/blink click, Scan & Select and training.

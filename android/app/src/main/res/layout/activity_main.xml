@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0E0E1A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TrackEye"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kamera se spouští…"
+            android:textColor="#B8B8D0"
+            android:textSize="14sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="8dp"
+            android:background="#16162A">
+
+            <androidx.camera.view.PreviewView
+                android:id="@+id/previewView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.trackeye.app.GazeOverlayView
+                android:id="@+id/gazeOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/modeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Režim: KURZOR"
+            android:textColor="#00D4A6"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/modeCursor" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="Kurzor" />
+            <Button android:id="@+id/modeScroll" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="Scroll" />
+            <Button android:id="@+id/modeKeyboard" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="Kláves." />
+            <Button android:id="@+id/modeScan" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="Scan" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/activateButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Aktivní ovládání: ZAP (dlouhé mrknutí přepne)" />
+
+        <Button
+            android:id="@+id/accessibilityButton"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Povolit systémové ovládání (Accessibility)" />
+
+        <!-- Demo / test area -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Testovací plocha" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/demoA" android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1" android:text="Cíl A" />
+            <Button android:id="@+id/demoB" android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1" android:text="Cíl B" />
+            <Button android:id="@+id/demoC" android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1" android:text="Cíl C" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/scanPanel" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Scan &amp; Select — mrknutím potvrďte zvýrazněnou volbu" android:textColor="#FFD166" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button android:id="@+id/scan0" android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1" android:text="Klik" />
+                <Button android:id="@+id/scan1" android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1" android:text="Zpět" />
+                <Button android:id="@+id/scan2" android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1" android:text="Scroll ↓" />
+                <Button android:id="@+id/scan3" android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1" android:text="Domů" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/keyboardPanel" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+            <EditText android:id="@+id/keyboardOutput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Text psaný pohledem…" android:textColor="#FFFFFF" android:textColorHint="#8888AA" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button android:id="@+id/keyA" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="A" />
+                <Button android:id="@+id/keyB" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="B" />
+                <Button android:id="@+id/keyC" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="C" />
+                <Button android:id="@+id/keySpace" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="␣" />
+                <Button android:id="@+id/keyBack" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="⌫" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/logText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Události gest se zobrazí zde."
+            android:textColor="#B8B8D0" />
+
+        <!-- Panels navigation -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="horizontal">
+            <Button android:id="@+id/tabCalib" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:text="Kalibrace" />
+            <Button android:id="@+id/tabProfiles" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:text="Profily" />
+            <Button android:id="@+id/tabTrain" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:text="Trénink" />
+            <Button android:id="@+id/tabStats" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:text="Statistiky" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/calibPanel" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rychlá kalibrace: dívejte se do středu, pak vlevo, vpravo, nahoru, dolů. Každý krok zachytíte tlačítkem." android:textColor="#FFFFFF" />
+            <TextView android:id="@+id/calibStepText" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Krok: STŘED" android:textColor="#FFD166" />
+            <Button android:id="@+id/calibCapture" android:layout_width="match_parent" android:layout_height="56dp" android:text="Zachytit tento směr" />
+            <Button android:id="@+id/calibReset" android:layout_width="match_parent" android:layout_height="48dp" android:text="Reset kalibrace" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/profilesPanel" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Profily (ukládají se jen lokálně)" android:textColor="#FFFFFF" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button android:id="@+id/profileChat" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:text="Chat" />
+                <Button android:id="@+id/profileBrowser" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:text="Prohlížeč" />
+                <Button android:id="@+id/profileEdu" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:text="Výuka" />
+            </LinearLayout>
+            <EditText android:id="@+id/profileName" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Název vlastního profilu" android:textColor="#FFFFFF" android:textColorHint="#8888AA" />
+            <Button android:id="@+id/profileSave" android:layout_width="match_parent" android:layout_height="52dp" android:text="Uložit aktuální nastavení jako profil" />
+            <TextView android:id="@+id/profileList" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#B8B8D0" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/trainPanel" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Trénink: klikejte mrknutím / dwell na bubliny v pořadí." android:textColor="#FFFFFF" />
+            <Button android:id="@+id/trainTarget" android:layout_width="match_parent" android:layout_height="72dp" android:text="🎯 Bublina 0/5 — klikni na mě" />
+            <TextView android:id="@+id/trainText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#B8B8D0" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/statsPanel" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+            <TextView android:id="@+id/statsText" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#FFFFFF" />
+            <Button android:id="@+id/statsClear" android:layout_width="match_parent" android:layout_height="48dp" android:text="Vymazat statistiky" />
+        </LinearLayout>
+
+        <!-- Settings -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Nastavení" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" />
+        <TextView android:id="@+id/dwellLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dwell čas: 800 ms" android:textColor="#B8B8D0" />
+        <SeekBar android:id="@+id/dwellSeek" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="900" android:progress="500" />
+        <TextView android:id="@+id/confLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Práh jistoty: 60 %" android:textColor="#B8B8D0" />
+        <SeekBar android:id="@+id/confSeek" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="90" android:progress="50" />
+        <TextView android:id="@+id/tiltLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Citlivost náklonu: 100 %" android:textColor="#B8B8D0" />
+        <SeekBar android:id="@+id/tiltSeek" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="150" android:progress="50" />
+        <CheckBox android:id="@+id/overlayCheck" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="Zobrazovat overlay (gaze dot)" android:textColor="#FFFFFF" />
+        <CheckBox android:id="@+id/dynamicFpsCheck" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="Šetřit baterii (dynamické FPS)" android:textColor="#FFFFFF" />
+        <CheckBox android:id="@+id/holdCheck" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hold-to-activate (dlouhé mrknutí zap/vyp)" android:textColor="#FFFFFF" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Soukromí: video se zpracovává pouze na tomto zařízení. Aplikace nemá přístup k internetu." android:textColor="#00D4A6" />
+    </LinearLayout>
+</ScrollView>

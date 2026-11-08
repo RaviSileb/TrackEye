@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TrackEye</string>
+    <string name="accessibility_label">TrackEye ovládání pohledem</string>
+    <string name="accessibility_description">Kliká, scrolluje a vrací se zpět podle pohledu a gest obličeje detekovaných aplikací TrackEye. Video se zpracovává pouze lokálně.</string>
+</resources>
